@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Asignación de Citas</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="#inicio" class="logo">Cita<span>Fácil</span></a>
+
+            <nav>
+                <a href="#inicio">Inicio</a>
+                <a href="#registro">Registro</a>
+                <a href="#login">Iniciar sesión</a>
+                <a href="#agendar">Agendar cita</a>
+                <a href="#mis-citas">Mis citas</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- INICIO -->
+        <section id="inicio" class="hero">
+            <div class="container hero-content">
+                <div>
+                    <span class="tag">Sistema de gestión de citas</span>
+
+                    <h1>Agenda tus citas de manera fácil y rápida</h1>
+
+                    <p>
+                        Consulta servicios, selecciona una fecha y administra
+                        tus citas desde una página web adaptable a celulares
+                        y computadores.
+                    </p>
+
+                    <a href="#agendar" class="btn btn-primary">
+                        Solicitar una cita
+                    </a>
+                </div>
+
+                <div class="hero-card">
+                    <div class="calendar-icon">📅</div>
+                    <h2>Tu próxima cita</h2>
+                    <p>Organiza tu tiempo de forma sencilla.</p>
+                    <span class="status">Gestión de citas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section class="container section">
+            <h2 class="section-title">Nuestros servicios</h2>
+
+            <div class="services">
+                <article class="service-card">
+                    <div class="service-icon">🩺</div>
+                    <h3>Centros médicos</h3>
+                    <p>Organización de citas y consultas médicas.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Empresas</h3>
+                    <p>Gestión de reuniones y atención de usuarios.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">🗓️</div>
+                    <h3>Agenda digital</h3>
+                    <p>Consulta y administra tus citas registradas.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- REGISTRO -->
+        <section id="registro" class="container section">
+            <div class="form-card">
+                <h2>Crear una cuenta</h2>
+                <p class="muted">Completa los siguientes campos.</p>
+
+                <form id="formRegistro">
+                    <label for="nombreRegistro">Nombre completo</label>
+                    <input
+                        type="text"
+                        id="nombreRegistro"
+                        maxlength="100"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="correoRegistro">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correoRegistro"
+                        maxlength="150"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="claveRegistro">Contraseña</label>
+                    <input
+                        type="password"
+                        id="claveRegistro"
+                        minlength="8"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary full">
+                        Registrarme
+                    </button>
+
+                    <p id="mensajeRegistro" class="message"
+                       role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- INICIO DE SESIÓN -->
+        <section id="login" class="container section">
+            <div class="form-card">
+                <h2>Iniciar sesión</h2>
+                <p class="muted">Ingresa a tu cuenta.</p>
+
+                <form id="formLogin">
+                    <label for="correoLogin">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correoLogin"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="claveLogin">Contraseña</label>
+                    <input
+                        type="password"
+                        id="claveLogin"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button type="submit" class="btn btn-primary full">
+                        Iniciar sesión
+                    </button>
+
+                    <p id="mensajeLogin" class="message"
+                       role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ASIGNAR CITA -->
+        <section id="agendar" class="container section">
+            <div class="form-card">
+                <h2>Asignar una cita</h2>
+                <p class="muted">
+                    Selecciona el servicio, la fecha y la hora.
+                </p>
+
+                <form id="formCita">
+                    <label for="nombrePaciente">Nombre del usuario</label>
+                    <input
+                        type="text"
+                        id="nombrePaciente"
+                        maxlength="100"
+                        required
+                    >
+
+                    <label for="correoPaciente">Correo electrónico</label>
+                    <input
+                        type="email"
+                        id="correoPaciente"
+                        maxlength="150"
+                        required
+                    >
+
+                    <label for="servicio">Tipo de servicio</label>
+                    <select id="servicio" required>
+                        <option value="">Selecciona un servicio</option>
+                        <option value="Consulta médica">Consulta médica</option>
+                        <option value="Atención empresarial">Atención empresarial</option>
+                        <option value="Reunión">Reunión</option>
+                        <option value="Otro servicio">Otro servicio</option>
+                    </select>
+
+                    <label for="fechaCita">Fecha</label>
+                    <input type="date" id="fechaCita" required>
+
+                    <label for="horaCita">Hora</label>
+                    <select id="horaCita" required>
+                        <option value="">Selecciona una hora</option>
+                        <option value="08:00">08:00 a. m.</option>
+                        <option value="09:00">09:00 a. m.</option>
+                        <option value="10:00">10:00 a. m.</option>
+                        <option value="11:00">11:00 a. m.</option>
+                        <option value="14:00">02:00 p. m.</option>
+                        <option value="15:00">03:00 p. m.</option>
+                        <option value="16:00">04:00 p. m.</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary full">
+                        Registrar cita
+                    </button>
+
+                    <p id="mensajeCita" class="message"
+                       role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- CONSULTAR CITAS -->
+        <section id="mis-citas" class="container section">
+            <h2 class="section-title">Mis citas</h2>
+
+            <div class="table-card">
+                <label for="buscarCita">Buscar por nombre</label>
+                <input
+                    type="search"
+                    id="buscarCita"
+                    placeholder="Escribe el nombre del usuario..."
+                >
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Servicio</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Estado</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="listaCitas"></tbody>
+                    </table>
+                </div>
+
+                <p id="mensajeTabla" class="muted"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Sistema de Asignación de Citas |
+                Proyecto académico ADSO - SENA
+            </p>
+            <p>Prototipo web en desarrollo.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
